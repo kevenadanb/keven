@@ -1,0 +1,45 @@
+@use "variables" as *;
+
+:root {
+  --kali-blue: #{$kali-blue};
+  --secondary-blue: #{$secondary-blue};
+  --contrast-blue: #{$contrast-blue};
+  --light-text: #{$light-text};
+  --accent-red: #{$accent-red};
+  --accent-gold: #{$accent-gold};
+
+  /* Sobrescreve o foco padrão do Bootstrap (previne anel amarelo/laranja) */
+  --bs-focus-ring-color: #{rgba($accent-gold, 0.45)};
+  --bs-focus-ring-width: 3px;
+  --bs-link-color: #{$light-text};
+  --bs-link-hover-color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-body;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: $light-text;
+  background:
+    radial-gradient(1000px 500px at 15% 5%, rgba($secondary-blue, 0.45), transparent),
+    radial-gradient(800px 400px at 95% 95%, rgba($accent-gold, 0.06), transparent),
+    radial-gradient(600px 300px at 60% 55%, rgba($accent-gold, 0.05), transparent),
+    $kali-blue;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $font-display;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: $light-text;
+}

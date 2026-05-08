@@ -1,0 +1,328 @@
+@use "variables" as *;
+
+.navbar {
+  background-color: rgba($kali-blue, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($accent-gold, 0.12);
+}
+
+.navbar-brand {
+  font-family: $font-display;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+}
+
+.brand-role {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $accent-gold;
+  opacity: 0.85;
+}
+
+.hero-card {
+  background: linear-gradient(160deg, rgba($contrast-blue, 0.9), rgba($kali-blue, 0.92));
+  border: 1px solid rgba($light-text, 0.1);
+  border-top: 1px solid rgba($accent-gold, 0.22);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-soft;
+}
+
+.section-title {
+  font-size: clamp(1.2rem, 4vw, 2.2rem);
+  margin-bottom: 1rem;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 2px;
+    margin-top: 0.5rem;
+    background: linear-gradient(90deg, $accent-gold, rgba($accent-gold, 0));
+    border-radius: 2px;
+  }
+}
+
+.badge-highlight {
+  background-color: rgba($accent-gold, 0.15);
+  color: rgba($accent-gold, 0.9);
+  border: 1px solid rgba($accent-gold, 0.4);
+  border-radius: 99px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.skill-card {
+  min-height: 96px;
+  border: 1px solid rgba($light-text, 0.14);
+  border-radius: $radius-md;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  display: grid;
+  place-items: center;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.skill-icon {
+  width: 52px;
+  height: 52px;
+  display: block;
+}
+
+.skill-card:hover,
+.skill-card:focus-within {
+  transform: translateY(-3px);
+  border-color: rgba($accent-gold, 0.5);
+  box-shadow: 0 8px 24px rgba($accent-gold, 0.14);
+}
+
+.btn-kali {
+  background: linear-gradient(120deg, $secondary-blue, $accent-blue-bright);
+  border: 0;
+  color: #fff;
+  font-weight: 600;
+  transition: background 220ms ease, box-shadow 220ms ease;
+}
+
+.btn-kali:hover,
+.btn-kali:focus {
+  background: linear-gradient(120deg, $accent-blue-bright, $secondary-blue);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba($accent-blue-bright, 0.35);
+}
+
+.btn-outline-kali {
+  border: 1px solid rgba($light-text, 0.35);
+  color: $light-text;
+  transition: border-color 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.btn-outline-kali:hover,
+.btn-outline-kali:focus {
+  border-color: rgba($light-text, 0.8);
+  background-color: rgba($light-text, 0.08);
+  color: #fff;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.07);
+  border-color: rgba($light-text, 0.2);
+  color: $light-text;
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.09);
+  border-color: rgba($accent-gold, 0.6);
+  color: $light-text;
+  box-shadow: 0 0 0 3px rgba($accent-gold, 0.15);
+  outline: none;
+}
+
+.form-control.is-invalid,
+.form-control.is-invalid:focus {
+  border-color: rgba($accent-red, 0.7);
+  box-shadow: 0 0 0 3px rgba($accent-red, 0.2);
+  background-image: none;
+}
+
+.form-control::placeholder {
+  color: rgba($light-text, 0.5);
+}
+
+/* Anéis de foco — acessibilidade sem conotação de erro */
+.btn:focus-visible,
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba($accent-gold, 0.45);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid rgba($accent-gold, 0.55);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #fff !important;
+  position: relative;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: $accent-gold;
+  border-radius: 2px;
+}
+
+.contact-social-link:focus-visible {
+  outline: 2px solid rgba($accent-gold, 0.55);
+  outline-offset: 3px;
+}
+
+.feedback-message {
+  min-height: 24px;
+  font-size: 0.95rem;
+  margin-top: 0.6rem;
+}
+
+.contact-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.contact-social-link {
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba($light-text, 0.18);
+  border-radius: $radius-md;
+  background: rgba(255, 255, 255, 0.03);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-social-link:hover,
+.contact-social-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba($accent-gold, 0.5);
+  box-shadow: 0 8px 22px rgba($accent-gold, 0.14);
+}
+
+.contact-social-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: minmax(120px, clamp(120px, 24vw, 250px)) 1fr;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: center;
+}
+
+.about-avatar {
+  width: 100%;
+  max-width: 250px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Responsividade tablet (< 992px) ── */
+@media (max-width: 991.98px) {
+  .hero-card {
+    padding: 2rem !important;
+  }
+
+  .skill-card {
+    min-height: 84px;
+  }
+
+  .skill-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .about-panel,
+  .contact-panel {
+    padding: 2rem !important;
+  }
+
+  .about-content {
+    grid-template-columns: minmax(120px, 180px) 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ── Responsividade mobile (< 576px) ── */
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    font-size: 0.9rem;
+  }
+
+  .brand-role {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-card {
+    border-radius: $radius-md;
+    padding: 1.25rem !important;
+  }
+
+  .skill-card {
+    min-height: 64px;
+  }
+
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .contact-social-link {
+    width: 44px;
+    height: 44px;
+  }
+
+  .contact-social-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn-kali,
+  .btn-outline-kali {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-panel,
+  .contact-panel {
+    padding: 1.25rem !important;
+    border-radius: $radius-md;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .about-avatar {
+    width: clamp(128px, 50vw, 220px);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .about-content .section-title::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .badge-highlight {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .about-panel p,
+  .contact-panel > p {
+    font-size: 1rem;
+  }
+}
