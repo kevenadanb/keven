@@ -1,6 +1,6 @@
 # keven-web
 
-Portfolio profissional do Keven A. Bezerra.
+Meu Portfolio profissional.
 
 ## Stack
 - HTML5
