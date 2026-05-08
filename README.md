@@ -60,6 +60,19 @@ Para validar o build localmente:
 npm run preview
 ```
 
+## Deploy na Vercel
+
+1. Faça push do repositório para o GitHub.
+2. Acesse [vercel.com](https://vercel.com) → **Add New Project** → importe o repositório.
+3. A Vercel detecta o Vite automaticamente. As configurações já estão no `vercel.json`:
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+4. Em **Environment Variables**, adicione as três variáveis do EmailJS:
+   - `VITE_EMAILJS_PUBLIC_KEY`
+   - `VITE_EMAILJS_SERVICE_ID`
+   - `VITE_EMAILJS_TEMPLATE_ID`
+5. Clique em **Deploy**.
+
 ## Skill Icons
 
 Os ícones de habilidades usam o projeto `tandpfun/skill-icons` via endpoint público:
