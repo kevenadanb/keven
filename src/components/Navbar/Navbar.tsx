@@ -60,10 +60,11 @@ export default function Navbar() {
                 fontWeight: 700,
                 color: "text.primary",
                 lineHeight: 1.2,
+              
                 fontSize: { xs: "1rem", sm: "1.1rem" },
               }}
             >
-              Keven A. Bezerra
+              K. Adan Bezerra
             </Typography>
             <Typography
               component="span"
@@ -78,7 +79,7 @@ export default function Navbar() {
                 display: "block",
               }}
             >
-              Full-Stack Developer
+              Engenheiro de Software
             </Typography>
           </Box>
 
