@@ -1,19 +1,29 @@
 {
   "name": "keven-web",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Portfolio profissional do Keven A. Bezerra",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "bootstrap": "5.3.8",
-    "jquery": "latest"
+    "@emailjs/browser": "^4.0.0",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@mui/icons-material": "^6.0.0",
+    "@mui/material": "^6.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "sass": "latest",
-    "vite": "latest"
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.0"
   }
 }
