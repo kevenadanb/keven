@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { ACCENT_GOLD, LIGHT_TEXT, sectionTitleSx } from "../../theme";
+import { goldTextSx, sectionTitleSx } from "../../theme";
 import ScrollReveal from "../ScrollReveal/ScrollReveal";
 import SkillsGrid from "./SkillsGrid";
 
@@ -25,11 +25,6 @@ export default function HeroSection() {
       maxWidth="xl"
       sx={{
         mb: { xs: 4, md: 6 },
-        background: "linear-gradient(160deg, rgba(27, 38, 59, 0.9), rgba(13, 27, 42, 0.92))",
-        border: "1px solid rgba(224, 225, 221, 0.1)",
-        borderTop: "1px solid rgba(232, 192, 110, 0.22)",
-        borderRadius: "18px",
-        boxShadow: "0 12px 30px rgba(0, 0, 0, 0.28)",
         p: { xs: "1.5rem", sm: "2.5rem", md: "4rem" },
       }}
     >
@@ -44,7 +39,7 @@ export default function HeroSection() {
             top: "2rem",
             bottom: "2rem",
             width: "1px",
-            background: "linear-gradient(to bottom, transparent, rgba(232, 192, 110, 0.3), transparent)",
+            background: "linear-gradient(to bottom, transparent, rgba(var(--gold-rgb), 0.3), transparent)",
             pointerEvents: "none",
           }}
         />
@@ -52,19 +47,19 @@ export default function HeroSection() {
         {/* Coluna esquerda — Introdução + Sobre */}
         <Grid size={{ xs: 12, lg: 6 }} sx={{ pr: { lg: 4 } }}>
           <ScrollReveal direction="left" delay={80} distance={40}>
-          {/* badge-highlight */}
+          {/* badge-highlight — azul suave: selo informativo, não é uma ação (dourado fica reservado ao CTA) */}
           <Box
             component="span"
             sx={{
-              background: "rgba(232, 192, 110, 0.15)",
-              color: "rgba(232, 192, 110, 0.9)",
-              border: "1px solid rgba(232, 192, 110, 0.4)",
+              background: "rgba(var(--soft-rgb), 0.14)",
+              color: "var(--soft-solid)",
+              border: "1px solid rgba(var(--soft-rgb), 0.4)",
               borderRadius: "99px",
               px: "0.9rem",
               py: "0.45rem",
               fontSize: "0.78rem",
               fontWeight: 600,
-              fontFamily: '"Manrope", sans-serif',
+              fontFamily: '"Montserrat", sans-serif',
               display: "inline-block",
             }}
           >
@@ -75,6 +70,7 @@ export default function HeroSection() {
             variant="h3"
             component="h1"
             sx={{
+              ...goldTextSx,
               fontWeight: 700,
               mt: 2,
               mb: 2,
@@ -90,23 +86,13 @@ export default function HeroSection() {
             No momento, desenvolve com React.js, Node.js, Supabase/PostgreSQL e agentes de IA, explorando aplicações de inteligência artificial aplicadas à engenharia de software. Perfil autodidata e comprometido com aprendizado contínuo.
           </Typography>
 
-          {/* btn-outline-kali */}
+          {/* CTA — botão outline dourado (Figma: Gold Outlined Button) */}
           <Button
             variant="outlined"
+            color="secondary"
             size="large"
             onClick={scrollToContact}
-            sx={{
-              borderColor: `rgba(224, 225, 221, 0.35)`,
-              color: LIGHT_TEXT,
-              px: 4,
-              py: 1,
-              transition: "border-color 220ms ease, background-color 220ms ease, color 220ms ease",
-              "&:hover": {
-                borderColor: "rgba(224, 225, 221, 0.8)",
-                background: "rgba(224, 225, 221, 0.08)",
-                color: "#fff",
-              },
-            }}
+            sx={{ px: 4, py: 1 }}
           >
             Contato
           </Button>
@@ -148,7 +134,7 @@ export default function HeroSection() {
           sx={{
             width: "1px",
             height: { xs: 28, md: 36 },
-            background: `linear-gradient(to bottom, transparent, rgba(232, 192, 110, 0.55))`,
+            background: "linear-gradient(to bottom, transparent, rgba(var(--gold-rgb), 0.55))",
             mb: "2px",
             animation: "bounce 2.2s ease-in-out infinite",
           }}
@@ -156,8 +142,8 @@ export default function HeroSection() {
         <KeyboardArrowDownIcon
           sx={{
             fontSize: { xs: 32, md: 38 },
-            color: ACCENT_GOLD,
-            filter: "drop-shadow(0 0 6px rgba(232, 192, 110, 0.4))",
+            color: "var(--gold-solid)",
+            filter: "drop-shadow(0 0 6px rgba(var(--gold-rgb), 0.4))",
             animation: "bounce 2.2s ease-in-out infinite",
           }}
         />

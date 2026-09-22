@@ -11,7 +11,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocalCafeIcon from "@mui/icons-material/LocalCafe";
 import type { SvgIconComponent } from "@mui/icons-material";
 import { useState, useEffect } from "react";
-import { ACCENT_GOLD, sectionTitleSx } from "../../theme";
+import { sectionTitleSx } from "../../theme";
 import ScrollReveal from "../ScrollReveal/ScrollReveal";
 
 interface Project {
@@ -78,8 +78,8 @@ const BLOCK_LABEL_SX = {
   fontWeight: 800,
   letterSpacing: "0.14em",
   textTransform: "uppercase" as const,
-  color: ACCENT_GOLD,
-  fontFamily: '"Manrope", sans-serif',
+  color: "var(--soft-solid)",
+  fontFamily: '"Montserrat", sans-serif',
   opacity: 0.75,
   mb: 0.75,
   display: "block",
@@ -91,8 +91,8 @@ function EcosystemBlock({ label, text }: { label: string; text: string }) {
       sx={{
         p: { xs: "1rem", sm: "1.1rem" },
         borderRadius: "8px",
-        background: "rgba(13, 27, 42, 0.55)",
-        border: "1px solid rgba(224, 225, 221, 0.07)",
+        background: "rgba(var(--card-2-rgb), 0.55)",
+        border: "1px solid rgba(var(--fg-rgb), 0.07)",
         height: "100%",
       }}
     >
@@ -103,9 +103,9 @@ function EcosystemBlock({ label, text }: { label: string; text: string }) {
         variant="body2"
         sx={{
           fontSize: "0.88rem",
-          color: "rgba(224, 225, 221, 0.6)",
+          color: "rgba(var(--fg-rgb), 0.6)",
           lineHeight: 1.7,
-          fontFamily: '"Manrope", sans-serif',
+          fontFamily: '"Montserrat", sans-serif',
         }}
       >
         {text}
@@ -144,18 +144,18 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           cursor: "pointer",
           p: { xs: "1.5rem", sm: "2rem", md: "2.5rem" },
           borderRadius: "14px",
-          background: "linear-gradient(160deg, rgba(27, 38, 59, 0.9), rgba(13, 27, 42, 0.92))",
-          border: "1px solid rgba(224, 225, 221, 0.1)",
+          background: "linear-gradient(160deg, rgba(var(--card-1-rgb), 0.9), rgba(var(--card-2-rgb), 0.92))",
+          border: "1px solid rgba(var(--fg-rgb), 0.1)",
           borderTop: open && !pulsing
-            ? "1px solid rgba(232, 192, 110, 0.45)"
-            : "1px solid rgba(232, 192, 110, 0.2)",
+            ? "1px solid rgba(var(--gold-rgb), 0.45)"
+            : "1px solid rgba(var(--gold-rgb), 0.2)",
           "@keyframes cardPulse": {
-            "0%, 100%": { boxShadow: "0 8px 24px rgba(0,0,0,0.2)" },
-            "50%": { boxShadow: "0 8px 28px rgba(0,0,0,0.28), 0 0 0 4px rgba(232, 192, 110, 0.28)" },
+            "0%, 100%": { boxShadow: "0 8px 24px rgba(0,0,0,0.14)" },
+            "50%": { boxShadow: "0 8px 28px rgba(0,0,0,0.2), 0 0 0 4px rgba(var(--gold-rgb), 0.28)" },
           },
           boxShadow: pulsing
             ? undefined
-            : open ? "0 16px 36px rgba(0, 0, 0, 0.35)" : "0 8px 24px rgba(0, 0, 0, 0.2)",
+            : open ? "0 16px 36px rgba(0, 0, 0, 0.24)" : "0 8px 24px rgba(0, 0, 0, 0.14)",
           animation: pulsing ? "cardPulse 2s ease-in-out infinite" : "none",
           transition: "box-shadow 260ms ease, border-color 260ms ease",
           display: "flex",
@@ -163,11 +163,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           gap: 2,
           outline: "none",
           "&:hover": {
-            boxShadow: "0 16px 36px rgba(0, 0, 0, 0.38)",
-            borderColor: "rgba(232, 192, 110, 0.35)",
+            boxShadow: "0 16px 36px rgba(0, 0, 0, 0.26)",
+            borderColor: "rgba(var(--gold-rgb), 0.35)",
           },
           "&:focus-visible": {
-            outline: "2px solid rgba(232, 192, 110, 0.6)",
+            outline: "2px solid rgba(var(--gold-rgb), 0.6)",
             outlineOffset: "3px",
           },
         }}
@@ -179,8 +179,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               width: 44,
               height: 44,
               borderRadius: "10px",
-              background: "rgba(232, 192, 110, 0.1)",
-              border: "1px solid rgba(232, 192, 110, 0.28)",
+              background: "rgba(var(--gold-rgb), 0.1)",
+              border: "1px solid rgba(var(--gold-rgb), 0.28)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -188,7 +188,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               mt: "2px",
             }}
           >
-            <Icon sx={{ fontSize: 22, color: ACCENT_GOLD }} />
+            <Icon sx={{ fontSize: 22, color: "var(--gold-solid)" }} />
           </Box>
           <Box sx={{ flex: 1 }}>
             <Typography
@@ -198,8 +198,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 fontWeight: 800,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "rgba(224, 225, 221, 0.35)",
-                fontFamily: '"Manrope", sans-serif',
+                color: "rgba(var(--fg-rgb), 0.35)",
+                fontFamily: '"Montserrat", sans-serif',
                 display: "block",
                 mb: 0.4,
               }}
@@ -210,7 +210,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               variant="h6"
               component="h3"
               sx={{
-                fontFamily: '"Poppins", sans-serif',
+                fontFamily: '"Cinzel", serif',
                 fontWeight: 700,
                 fontSize: { xs: "1.05rem", sm: "1.2rem" },
                 lineHeight: 1.25,
@@ -221,7 +221,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </Box>
           <ExpandMoreIcon
             sx={{
-              color: ACCENT_GOLD,
+              color: "var(--gold-solid)",
               opacity: 0.7,
               fontSize: 22,
               flexShrink: 0,
@@ -235,12 +235,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         {/* Descrição */}
         <Typography
           variant="body2"
-          sx={{ color: "rgba(224, 225, 221, 0.75)", fontSize: "0.98rem", lineHeight: 1.75 }}
+          sx={{ color: "rgba(var(--fg-rgb), 0.75)", fontSize: "0.98rem", lineHeight: 1.75 }}
         >
           {project.description}
         </Typography>
 
-        {/* Chips sempre visíveis */}
+        {/* Chips sempre visíveis — tags de domínio em azul suave; dourado fica só no ícone/CTA do card */}
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
           {project.tags.map((tag) => (
             <Chip
@@ -250,10 +250,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               sx={{
                 fontSize: "0.72rem",
                 height: 22,
-                background: "rgba(232, 192, 110, 0.08)",
-                color: "rgba(232, 192, 110, 0.7)",
-                border: "1px solid rgba(232, 192, 110, 0.2)",
-                fontFamily: '"Manrope", sans-serif',
+                background: "rgba(var(--soft-rgb), 0.1)",
+                color: "rgba(var(--soft-rgb), 0.95)",
+                border: "1px solid rgba(var(--soft-rgb), 0.25)",
+                fontFamily: '"Montserrat", sans-serif',
                 fontWeight: 600,
               }}
             />
@@ -266,10 +266,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               sx={{
                 fontSize: "0.72rem",
                 height: 22,
-                background: "rgba(224, 225, 221, 0.06)",
-                color: "rgba(224, 225, 221, 0.45)",
-                border: "1px solid rgba(224, 225, 221, 0.1)",
-                fontFamily: '"Manrope", sans-serif',
+                background: "rgba(var(--fg-rgb), 0.06)",
+                color: "rgba(var(--fg-rgb), 0.5)",
+                border: "1px solid rgba(var(--fg-rgb), 0.1)",
+                fontFamily: '"Montserrat", sans-serif',
                 fontWeight: 500,
               }}
             />

@@ -5,7 +5,6 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Grid from "@mui/material/Grid2";
 import TextField from "@mui/material/TextField";
 import { FormEvent, RefObject } from "react";
-import { ACCENT_GOLD } from "../../theme";
 import type { ContactFeedback, ContactFormValues } from "./useContactForm";
 
 interface ContactFormProps {
@@ -74,26 +73,13 @@ export default function ContactForm({
             <Button
               type="submit"
               variant="contained"
+              color="secondary"
               size="large"
               disabled={isSubmitting}
               startIcon={
                 isSubmitting ? <CircularProgress size={18} color="inherit" /> : undefined
               }
-              sx={{
-                px: 4,
-                background: "rgba(26, 35, 126, 0.8)",
-                border: `1px solid ${ACCENT_GOLD}`,
-                color: ACCENT_GOLD,
-                "&:hover": {
-                  background: "rgba(26, 35, 126, 1)",
-                  border: `1px solid ${ACCENT_GOLD}`,
-                },
-                "&.Mui-disabled": {
-                  opacity: 0.65,
-                  color: ACCENT_GOLD,
-                  borderColor: ACCENT_GOLD,
-                },
-              }}
+              sx={{ px: 4 }}
             >
               {isSubmitting ? "Enviando…" : "Enviar Mensagem"}
             </Button>

@@ -2,7 +2,6 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import { ACCENT_GOLD } from "../../theme";
 
 interface SkillItem {
   name: string;
@@ -63,15 +62,15 @@ function SkillIcon({ skill }: { skill: SkillItem }) {
           width: { xs: 56, sm: 64 },
           height: { xs: 56, sm: 64 },
           borderRadius: "10px",
-          background: "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
-          border: "1px solid rgba(224, 225, 221, 0.14)",
+          background: "linear-gradient(180deg, rgba(var(--fg-rgb),0.05), rgba(var(--fg-rgb),0.015))",
+          border: "1px solid rgba(var(--fg-rgb), 0.14)",
           cursor: "default",
           flexShrink: 0,
           transition: "transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease",
           "&:hover": {
             transform: "translateY(-3px)",
-            borderColor: "rgba(232, 192, 110, 0.5)",
-            boxShadow: "0 8px 24px rgba(232, 192, 110, 0.14)",
+            borderColor: "rgba(var(--gold-rgb), 0.5)",
+            boxShadow: "0 8px 24px rgba(var(--gold-rgb), 0.14)",
           },
         }}
       >
@@ -92,7 +91,7 @@ export default function SkillsGrid() {
     <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       {SKILL_CATEGORIES.map((category) => (
         <Box key={category.label}>
-          {/* Label da categoria */}
+          {/* Label da categoria — azul suave: agrupamento informativo, sem competir com o dourado do CTA */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1 }}>
             <Typography
               component="span"
@@ -101,8 +100,8 @@ export default function SkillsGrid() {
                 fontWeight: 700,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: `rgba(232, 192, 110, 0.65)`,
-                fontFamily: '"Manrope", sans-serif',
+                color: "rgba(var(--soft-rgb), 0.85)",
+                fontFamily: '"Montserrat", sans-serif',
                 whiteSpace: "nowrap",
               }}
             >
@@ -112,7 +111,7 @@ export default function SkillsGrid() {
               sx={{
                 flex: 1,
                 height: "1px",
-                background: `linear-gradient(90deg, rgba(232, 192, 110, 0.25), transparent)`,
+                background: "linear-gradient(90deg, rgba(var(--soft-rgb), 0.25), transparent)",
               }}
             />
           </Box>

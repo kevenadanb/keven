@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { ACCENT_GOLD, sectionTitleSx } from "../../theme";
+import { sectionTitleSx } from "../../theme";
 import ScrollReveal from "../ScrollReveal/ScrollReveal";
 
 interface Experience {
@@ -71,16 +71,16 @@ function ExperienceCard({ exp }: { exp: Experience }) {
       sx={{
         p: { xs: "1.5rem", sm: "2.5rem" },
         borderRadius: "12px",
-        background: "linear-gradient(160deg, rgba(27, 38, 59, 0.9), rgba(13, 27, 42, 0.92))",
-        border: "1px solid rgba(224, 225, 221, 0.1)",
+        background: "linear-gradient(160deg, rgba(var(--card-1-rgb), 0.9), rgba(var(--card-2-rgb), 0.92))",
+        border: "1px solid rgba(var(--fg-rgb), 0.1)",
         borderLeft: exp.current
-          ? `3px solid ${ACCENT_GOLD}`
-          : "1px solid rgba(224, 225, 221, 0.1)",
-        borderTop: "1px solid rgba(232, 192, 110, 0.18)",
-        boxShadow: "0 8px 24px rgba(0, 0, 0, 0.2)",
+          ? "3px solid var(--gold-solid)"
+          : "1px solid rgba(var(--fg-rgb), 0.1)",
+        borderTop: "1px solid rgba(var(--gold-rgb), 0.18)",
+        boxShadow: "0 8px 24px rgba(0, 0, 0, 0.14)",
         transition: "box-shadow 220ms ease",
         "&:hover": {
-          boxShadow: "0 12px 30px rgba(0, 0, 0, 0.32)",
+          boxShadow: "0 12px 30px rgba(0, 0, 0, 0.2)",
         },
       }}
     >
@@ -90,7 +90,7 @@ function ExperienceCard({ exp }: { exp: Experience }) {
           variant="h6"
           component="h3"
           sx={{
-            fontFamily: '"Poppins", sans-serif',
+            fontFamily: '"Cinzel", serif',
             fontWeight: 700,
             fontSize: { xs: "1.1rem", sm: "1.25rem" },
           }}
@@ -104,9 +104,9 @@ function ExperienceCard({ exp }: { exp: Experience }) {
             fontSize: "0.72rem",
             fontWeight: 500,
             letterSpacing: "0.05em",
-            color: "rgba(224, 225, 221, 0.45)",
+            color: "rgba(var(--fg-rgb), 0.45)",
             textTransform: "uppercase",
-            fontFamily: '"Manrope", sans-serif',
+            fontFamily: '"Montserrat", sans-serif',
           }}
         >
           · {exp.location}
@@ -116,9 +116,9 @@ function ExperienceCard({ exp }: { exp: Experience }) {
           <Box
             component="span"
             sx={{
-              background: "rgba(232, 192, 110, 0.15)",
-              color: ACCENT_GOLD,
-              border: "1px solid rgba(232, 192, 110, 0.4)",
+              background: "rgba(var(--gold-rgb), 0.15)",
+              color: "var(--gold-solid)",
+              border: "1px solid rgba(var(--gold-rgb), 0.4)",
               borderRadius: "99px",
               px: "0.65rem",
               py: "0.2rem",
@@ -126,7 +126,7 @@ function ExperienceCard({ exp }: { exp: Experience }) {
               fontWeight: 700,
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              fontFamily: '"Manrope", sans-serif',
+              fontFamily: '"Montserrat", sans-serif',
             }}
           >
             ATUAL
@@ -138,11 +138,11 @@ function ExperienceCard({ exp }: { exp: Experience }) {
       <Typography
         variant="body2"
         sx={{
-          color: "rgba(224, 225, 221, 0.6)",
+          color: "rgba(var(--fg-rgb), 0.6)",
           fontSize: "0.88rem",
           fontStyle: "italic",
           mb: 1.5,
-          fontFamily: '"Manrope", sans-serif',
+          fontFamily: '"Montserrat", sans-serif',
         }}
       >
         {exp.role}
@@ -156,7 +156,7 @@ function ExperienceCard({ exp }: { exp: Experience }) {
         {exp.summary}
       </Typography>
 
-      {/* Stack de tecnologias */}
+      {/* Stack de tecnologias — azul suave: informativo, mantém o dourado exclusivo do selo "ATUAL" */}
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75, mb: 2.5 }}>
         {exp.stack.map((tech) => (
           <Chip
@@ -164,10 +164,10 @@ function ExperienceCard({ exp }: { exp: Experience }) {
             label={tech}
             size="small"
             sx={{
-              background: "rgba(232, 192, 110, 0.08)",
-              color: "rgba(232, 192, 110, 0.85)",
-              border: "1px solid rgba(232, 192, 110, 0.2)",
-              fontFamily: '"Manrope", sans-serif',
+              background: "rgba(var(--soft-rgb), 0.1)",
+              color: "rgba(var(--soft-rgb), 0.95)",
+              border: "1px solid rgba(var(--soft-rgb), 0.25)",
+              fontFamily: '"Montserrat", sans-serif',
               fontWeight: 600,
               fontSize: "0.72rem",
               height: 24,
@@ -188,7 +188,7 @@ function ExperienceCard({ exp }: { exp: Experience }) {
               fontSize: "1rem",
               lineHeight: 1.75,
               mb: 0.5,
-              fontFamily: '"Manrope", sans-serif',
+              fontFamily: '"Montserrat", sans-serif',
             }}
           >
             {item}
@@ -197,16 +197,16 @@ function ExperienceCard({ exp }: { exp: Experience }) {
       </Box>
 
       {/* Badge de contexto */}
-      <Box sx={{ borderTop: "1px solid rgba(224, 225, 221, 0.08)", pt: 1.5 }}>
+      <Box sx={{ borderTop: "1px solid rgba(var(--fg-rgb), 0.08)", pt: 1.5 }}>
         <Typography
           component="span"
           sx={{
             fontSize: "0.62rem",
             fontWeight: 700,
             letterSpacing: "0.14em",
-            color: "rgba(224, 225, 221, 0.3)",
+            color: "rgba(var(--fg-rgb), 0.3)",
             textTransform: "uppercase",
-            fontFamily: '"Manrope", sans-serif',
+            fontFamily: '"Montserrat", sans-serif',
           }}
         >
           {exp.context}

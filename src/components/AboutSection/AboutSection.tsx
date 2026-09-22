@@ -16,9 +16,9 @@ export default function AboutSection() {
         sx={{
           p: { xs: "1.25rem", sm: "2rem", md: "2.5rem" },
           borderRadius: "12px",
-          background: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(224, 225, 221, 0.1)",
-          borderTop: "1px solid rgba(232, 192, 110, 0.18)",
+          background: "rgba(var(--fg-rgb), 0.02)",
+          border: "1px solid rgba(var(--fg-rgb), 0.1)",
+          borderTop: "1px solid rgba(var(--gold-rgb), 0.18)",
           display: "grid",
           gridTemplateColumns: {
             xs: "1fr",

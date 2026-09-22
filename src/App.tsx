@@ -5,7 +5,6 @@ import HeroSection from "./components/HeroSection/HeroSection";
 import Navbar from "./components/Navbar/Navbar";
 import ProjectsSection from "./components/ProjectsSection/ProjectsSection";
 import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
-import { ACCENT_GOLD, KALI_BLUE, LIGHT_TEXT } from "./theme";
 
 export default function App() {
   return (
@@ -20,13 +19,13 @@ export default function App() {
           transform: "translateX(-50%)",
           top: "-60px",
           zIndex: 9999,
-          background: KALI_BLUE,
-          color: LIGHT_TEXT,
-          border: `1px solid ${ACCENT_GOLD}`,
+          background: "background.paper",
+          color: "text.primary",
+          border: "1px solid var(--gold-solid)",
           borderRadius: "8px",
           px: 3,
           py: 1,
-          fontFamily: '"Manrope", sans-serif',
+          fontFamily: '"Montserrat", sans-serif',
           fontWeight: 600,
           fontSize: "0.95rem",
           textDecoration: "none",

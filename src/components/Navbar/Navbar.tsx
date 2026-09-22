@@ -10,7 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
-import { ACCENT_GOLD } from "../../theme";
+import { goldTextSx } from "../../theme";
 
 interface NavLink {
   label: string;
@@ -40,12 +40,15 @@ export default function Navbar() {
     <>
       <AppBar position="fixed" elevation={0}>
         <Toolbar sx={{ py: 1 }}>
-          {/* Brand */}
+          {/* Brand — selo circular "K" + nome, no mesmo layout do logotipo do Figma */}
           <Box
             component="button"
             onClick={() => scrollToSection("inicio")}
             sx={{
               flexGrow: 1,
+              display: "flex",
+              alignItems: "center",
+              gap: 1.25,
               background: "none",
               border: "none",
               cursor: "pointer",
@@ -53,33 +56,44 @@ export default function Navbar() {
               textAlign: "left",
             }}
           >
+            <Box
+              aria-hidden="true"
+              sx={{
+                width: { xs: 36, sm: 40 },
+                height: { xs: 36, sm: 40 },
+                borderRadius: "50%",
+                border: "1.5px solid var(--gold-solid)",
+                background: "rgba(var(--gold-rgb), 0.08)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
+              <Typography
+                component="span"
+                sx={{
+                  ...goldTextSx,
+                  fontFamily: '"Cinzel", serif',
+                  fontWeight: 700,
+                  fontSize: { xs: "1.05rem", sm: "1.2rem" },
+                  lineHeight: 1,
+                }}
+              >
+                K
+              </Typography>
+            </Box>
             <Typography
               variant="h6"
               sx={{
-                fontFamily: '"Poppins", sans-serif',
+                fontFamily: '"Cinzel", serif',
                 fontWeight: 700,
                 color: "text.primary",
                 lineHeight: 1.2,
-              
                 fontSize: { xs: "1rem", sm: "1.1rem" },
               }}
             >
               K. Adan Bezerra
-            </Typography>
-            <Typography
-              component="span"
-              sx={{
-                fontFamily: '"Manrope", sans-serif',
-                fontWeight: 400,
-                fontSize: "0.68rem",
-                letterSpacing: "0.14em",
-                color: ACCENT_GOLD,
-                opacity: 0.85,
-                textTransform: "uppercase",
-                display: "block",
-              }}
-            >
-              Engenheiro de Software
             </Typography>
           </Box>
 
@@ -96,9 +110,9 @@ export default function Navbar() {
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  color: "rgba(224, 225, 221, 0.8)",
+                  color: "text.secondary",
                   fontSize: "0.95rem",
-                  fontFamily: '"Manrope", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontWeight: 500,
                   position: "relative",
                   transition: "color 220ms ease",
@@ -110,15 +124,15 @@ export default function Navbar() {
                     left: 0,
                     right: 0,
                     height: "2px",
-                    background: ACCENT_GOLD,
+                    background: "var(--gold-solid)",
                     borderRadius: "2px",
                     opacity: 0,
                     transition: "opacity 220ms ease",
                   },
-                  "&:hover": { color: "#fff" },
+                  "&:hover": { color: "text.primary" },
                   "&:hover::after": { opacity: 1 },
                   "&:focus-visible": {
-                    outline: "2px solid rgba(232, 192, 110, 0.55)",
+                    outline: "2px solid rgba(var(--gold-rgb), 0.55)",
                     outlineOffset: "2px",
                     borderRadius: "4px",
                   },
@@ -159,7 +173,7 @@ export default function Navbar() {
                 <ListItemText
                   primary={link.label}
                   primaryTypographyProps={{
-                    fontFamily: '"Manrope", sans-serif',
+                    fontFamily: '"Montserrat", sans-serif',
                     fontWeight: 500,
                   }}
                 />

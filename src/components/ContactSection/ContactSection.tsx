@@ -52,9 +52,9 @@ export default function ContactSection() {
         sx={{
           p: { xs: "1.5rem", sm: "2.5rem", md: "3.5rem" },
           borderRadius: "12px",
-          background: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(224, 225, 221, 0.1)",
-          borderTop: `1px solid rgba(232, 192, 110, 0.18)`,
+          background: "rgba(var(--fg-rgb), 0.02)",
+          border: "1px solid rgba(var(--fg-rgb), 0.1)",
+          borderTop: "1px solid rgba(var(--gold-rgb), 0.18)",
         }}
       >
         <Typography
@@ -93,9 +93,9 @@ export default function ContactSection() {
                 sx={{
                   width: { xs: "44px", sm: "54px" },
                   height: { xs: "44px", sm: "54px" },
-                  border: "1px solid rgba(224, 225, 221, 0.18)",
+                  border: "1px solid rgba(var(--fg-rgb), 0.18)",
                   borderRadius: "12px",
-                  background: "rgba(255, 255, 255, 0.03)",
+                  background: "rgba(var(--fg-rgb), 0.03)",
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -105,11 +105,11 @@ export default function ContactSection() {
                   ...(!social.unavailable && {
                     "&:hover, &:focus-visible": {
                       transform: "translateY(-2px)",
-                      borderColor: "rgba(232, 192, 110, 0.5)",
-                      boxShadow: "0 8px 22px rgba(232, 192, 110, 0.14)",
+                      borderColor: "rgba(var(--gold-rgb), 0.5)",
+                      boxShadow: "0 8px 22px rgba(var(--gold-rgb), 0.14)",
                     },
                     "&:focus-visible": {
-                      outline: "2px solid rgba(232, 192, 110, 0.55)",
+                      outline: "2px solid rgba(var(--gold-rgb), 0.55)",
                       outlineOffset: "3px",
                     },
                   }),
